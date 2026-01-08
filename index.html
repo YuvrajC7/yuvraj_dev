@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvraj | Full Stack Developer</title>
+    <title>Yuvraj Chandak | Full Stack Developer</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        /* --- CORE SETTINGS --- */
         :root {
-            --bg-color: #08080a; /* Dark Onyx */
+            --bg-color: #08080a;
             --line-color: rgba(255, 255, 255, 0.08);
-            --accent-color: #38bdf8; /* Cyber Blue */
+            --accent-color: #38bdf8;
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
         }
@@ -38,7 +37,6 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- THE MOVING LINES BACKGROUND --- */
         .lines-container {
             position: fixed;
             top: 0;
@@ -54,14 +52,13 @@
 
         .line {
             width: 1px;
-            height: 150vh; /* Taller than screen to allow movement */
+            height: 150vh;
             background: linear-gradient(to bottom, transparent, var(--line-color), transparent);
             position: relative;
             opacity: 0.5;
-            top: 0; /* JS will manipulate this */
+            top: 0;
         }
 
-        /* Add a glowing "pulse" traveling down the lines */
         .line::after {
             content: '';
             position: absolute;
@@ -81,7 +78,6 @@
             100% { top: 150%; }
         }
 
-        /* --- LAYOUT UTILITIES --- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -92,7 +88,6 @@
 
         .section-spacer { padding: 120px 0; }
 
-        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
@@ -123,8 +118,7 @@
             transition: 0.3s; 
         }
         .nav-links a:hover { opacity: 1; color: var(--accent-color); }
-
-        /* --- HERO SECTION --- */
+        
         .hero {
             height: 100vh;
             display: flex;
@@ -134,7 +128,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem); /* Responsive giant text */
+            font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1;
             font-weight: 700;
             margin-bottom: 24px;
@@ -169,18 +163,17 @@
             color: var(--bg-color);
             box-shadow: 0 0 20px rgba(255,255,255,0.2);
         }
-
-        /* --- GRID CARDS (Services) --- */
+        
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2px; /* Small gap for the border effect */
-            background: var(--line-color); /* Creates the border lines */
+            gap: 2px;
+            background: var(--line-color);
             border: 1px solid var(--line-color);
         }
 
         .card {
-            background: var(--bg-color); /* Cover the grid background */
+            background: var(--bg-color);
             padding: 40px;
             transition: 0.3s;
         }
@@ -190,8 +183,6 @@
         .card h3 { font-size: 1.5rem; margin-bottom: 16px; margin-top: 20px; }
         .card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
         .icon-box { color: var(--accent-color); }
-
-        /* --- SELECTED WORKS (Images Placeholder) --- */
         .work-item {
             border-top: 1px solid var(--line-color);
             padding: 60px 0;
@@ -207,7 +198,6 @@
         .work-title { font-size: 2.5rem; font-weight: 600; }
         .work-cat { color: var(--accent-color); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
 
-        /* --- CONTACT --- */
         .contact-section { text-align: center; border-top: 1px solid var(--line-color); }
         .big-link {
             font-size: clamp(2rem, 5vw, 4rem);
@@ -219,7 +209,6 @@
         }
         .big-link:hover { color: var(--accent-color); }
 
-        /* --- FOOTER --- */
         footer {
             padding: 40px 0;
             border-top: 1px solid var(--line-color);
@@ -229,7 +218,6 @@
             font-size: 0.8rem;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .work-item { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -289,7 +277,7 @@
                 <div class="card gsap-fade">
                     <div class="icon-box"><i data-lucide="code-2" size="32"></i></div>
                     <h3>Frontend Architecture</h3>
-                    <p>Building scalable interfaces with React and Next.js. I focus on component reusability and strict type safety.</p>
+                    <p>Building scalable interfaces with React and Next.js. I focus on component reusability and strict type safety. (javascript used due to time constraints)</p>
                 </div>
                 <div class="card gsap-fade">
                     <div class="icon-box"><i data-lucide="cpu" size="32"></i></div>
@@ -357,10 +345,8 @@
     </div>
 
     <script>
-        // 1. Initialize Icons
         lucide.createIcons();
 
-        // 2. The Line Movement Logic (Parallax)
         const lines = document.querySelectorAll('.line');
         
         window.addEventListener('scroll', () => {
@@ -368,22 +354,17 @@
             
             lines.forEach(line => {
                 const speed = line.getAttribute('data-speed');
-                // Move lines UP (-) based on scroll position * speed
-                // We use translate3d for better performance (GPU acceleration)
                 const yPos = -(scrollY * speed); 
                 line.style.transform = `translate3d(0, ${yPos}px, 0)`;
             });
 
-            // Navbar background toggle
             const nav = document.getElementById('navbar');
             if (scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // 3. GSAP Entry Animations
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Reveal
         const tl = gsap.timeline();
         tl.from('.gsap-reveal', {
             y: 50,
@@ -393,7 +374,6 @@
             ease: "power3.out"
         });
 
-        // Scroll Reveal for other sections
         gsap.utils.toArray('.gsap-fade').forEach(element => {
             gsap.from(element, {
                 scrollTrigger: {
@@ -411,4 +391,5 @@
     </script>
 </body>
 </html>
+
 
