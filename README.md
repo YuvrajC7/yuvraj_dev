@@ -16,16 +16,19 @@ For the animations, I used Framer Motion to create the stagger effects on the te
 ## How to Run It
 
 1.  Clone the repository:
-    bash
+    ```bash
     git clone [https://github.com/YOUR_USERNAME/yuvraj-dev.git](https://github.com/YOUR_USERNAME/yuvraj-dev.git)
     cd uprock-clone
+    ```
 
 2.  Install packages:
-    bash
+    ```bash
     npm install
+    ```
 
 3.  Start the dev server:
-    bash
+    ```bash
     npm run dev
+    ```
 
 Open `http://localhost:3000` in your browser.
